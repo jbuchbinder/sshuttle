@@ -1,0 +1,27 @@
+Description: Document missing option in sshuttle manpage
+Author: Miguel Landaeta <miguel@miguel.cc>
+Forwarded: https://github.com/apenwarr/sshuttle/pull/11
+Last-Update: 2011-04-04
+
+--- sshuttle-0.52.orig/sshuttle.md
++++ sshuttle-0.52/sshuttle.md
+@@ -1,6 +1,6 @@
+-% sshuttle(8) Sshuttle 0.46
++% sshuttle(8) Sshuttle 0.52
+ % Avery Pennarun <apenwarr@gmail.com>
+-% 2011-01-25
++% 2011-04-04
+ 
+ # NAME
+ 
+@@ -71,6 +71,10 @@ entire subnet to the VPN.
+     are taken automatically from the server's routing
+     table.
+     
++--dns
++:   capture local DNS requests and forward to the remote DNS
++    server.
++    
+ --python
+ :   specify the name/path of the remote python interpreter. 
+     The default is just `python`, which means to use the

@@ -1,0 +1,4 @@
+version=3
+https://github.com/apenwarr/sshuttle/downloads \
+ /apenwarr/sshuttle/tarball/sshuttle-([0-9\.]+) \
+ debian debian/orig-tar.sh

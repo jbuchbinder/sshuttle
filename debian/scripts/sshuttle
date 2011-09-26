@@ -1,0 +1,3 @@
+#!/bin/sh
+DIR=/usr/lib/sshuttle
+exec python "$DIR/main.py" python "$@"
