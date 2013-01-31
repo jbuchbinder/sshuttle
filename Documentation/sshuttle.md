@@ -71,6 +71,10 @@ entire subnet to the VPN.
     are taken automatically from the server's routing
     table.
     
+--dns
+:   capture local DNS requests and forward to the remote DNS
+    server.
+    
 --python
 :   specify the name/path of the remote python interpreter. 
     The default is just `python`, which means to use the
@@ -89,6 +93,10 @@ entire subnet to the VPN.
     `-x` option more than once.  You can say something like
     `0/0 -x 1.2.3.0/24` to forward everything except the
     local subnet over the VPN, for example.
+
+--exclude-from=*file*
+:   exclude the subnets specified in a file, one subnet per
+    line. Useful when you have lots of subnets to exclude.
 
 -v, --verbose
 :   print more information about the session.  This option

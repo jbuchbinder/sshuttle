@@ -37,15 +37,11 @@ def _maskbits(netmask):
     if not netmask:
         return 32
     for i in range(32):
-        if netmask[0] & _shl(1, i):
+        if netmask[0] & shl(1, i):
             return 32-i
     return 0
     
     
-def _shl(n, bits):
-    return n * int(2**bits)
-
-
 def _list_routes():
     argv = ['netstat', '-rn']
     p = ssubprocess.Popen(argv, stdout=ssubprocess.PIPE)
@@ -58,7 +54,7 @@ def _list_routes():
         maskw = _ipmatch(cols[2])  # linux only
         mask = _maskbits(maskw)   # returns 32 if maskw is null
         width = min(ipw[1], mask)
-        ip = ipw[0] & _shl(_shl(1, width) - 1, 32-width)
+        ip = ipw[0] & shl(shl(1, width) - 1, 32-width)
         routes.append((socket.inet_ntoa(struct.pack('!I', ip)), width))
     rv = p.wait()
     if rv != 0:
@@ -68,9 +64,11 @@ def _list_routes():
 
 
 def list_routes():
+    l = []
     for (ip,width) in _list_routes():
         if not ip.startswith('0.') and not ip.startswith('127.'):
-            yield (ip,width)
+            l.append((ip,width))
+    return l
 
 
 def _exc_dump():
